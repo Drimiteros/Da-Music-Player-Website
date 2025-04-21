@@ -1,0 +1,319 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(to top, rgb(150, 95, 14), rgb(60, 42, 2));
+    animation: gradientFlow 2s ease-out forwards;
+}
+@keyframes gradientFlow {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
+}
+
+#waveform {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container H1 {
+    display: flex;
+    flex-direction: row;
+    color: rgb(255, 207, 150);
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+}
+a {
+    padding: 2rem;
+}
+
+header {
+    background-color: rgb(130, 75, 4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+nav {
+    margin-top: 0.5rem;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+}
+.nav-links a {
+    position: relative;
+    display: inline-block;
+    color: rgb(255, 207, 150);
+    padding:  0rem 2rem;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
+    font-weight: bold;
+}
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 207, 150);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+}
+.nav-links a:hover::before {
+    transform: scaleX(1);
+}
+.nav-links a:hover {
+    color: rgb(130, 75, 4);
+}
+
+.description_container {
+    margin-top: -6rem;
+    max-width: 200rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 15px;
+    animation: slideFadeInLeft 1s ease-out forwards;
+}
+@keyframes slideFadeInLeft {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.description_container a {
+    color: rgb(250, 195, 134);
+}
+.description_container h2 {
+    color: rgb(255, 207, 150);
+    padding-top: 1rem;
+    font-size: 3rem;
+}
+.description_container2 {
+    padding: 1.5rem;
+    max-width: 100rem;
+    border-radius: 15px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.description_container2 a {
+    font-size: 1.2rem;
+}
+
+.image img{
+    transform: scale(0.59);
+    border-radius: 15px;
+    border: 2px solid rgb(250, 195, 134);    
+    margin-top: -1.5rem;
+}
+.image1 img{
+    transform: scale(0.79);
+    border: 2px solid rgb(255, 200, 180);
+    border-radius: 15px;
+    margin-top: 6rem;
+    margin-bottom: -3rem;
+    box-shadow: 14px 14px 55px rgba(0, 0, 0, 0.6);
+}
+.image2 img{
+    transform: scale(0.39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3rem;
+    margin-bottom: -4rem;
+}
+.image2 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1rem;
+    max-width: 10rem;
+    text-align: center;
+    margin-left: 2rem;
+}
+.image2 h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 200, 180);
+}
+.image3 img{
+    transform: scale(0.39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3rem;
+    margin-bottom: -4rem;
+}
+.image3 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1rem;
+    max-width: 10rem;
+    text-align: center;
+    margin-left: 2rem;
+}
+.image3 h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 200, 180);
+}
+.image4 img{
+    transform: scale(0.39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3rem;
+    margin-bottom: -4rem;
+}
+.image4 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1rem;
+    max-width: 10rem;
+    text-align: center;
+    margin-left: 2rem;
+}
+.image4 h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 200, 180);
+}
+
+.button_class {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.button1 {
+    width: 190px;
+    height: 60px;
+    background-color: rgb(150, 95, 4);
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 1.22rem;
+    font-weight: bold;
+    border-width: 0px;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+}
+.button1 a {
+    color: rgb(250, 195, 134);
+}
+.button1:hover {
+    width: 200px;
+    height: 60px;
+    background-color: rgb(250, 195, 134);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button1:hover a {
+    color: rgb(35, 35, 40);
+}
+.button2 {
+    width: 200px;
+    height: 60px;
+    background-color: rgb(150, 95, 4);
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 1.22rem;
+    font-weight: bold;
+    border-width: 0px;
+    transition: all 0.3s ease;
+}
+.button2 a {
+    color: rgb(250, 195, 134);
+}
+.button2:hover {
+    width: 210px;
+    height: 60px;
+    background-color: rgb(250, 195, 134);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button2:hover a {
+    color: rgb(35, 35, 40);
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(60, 42, 2);
+    color: rgb(255, 180, 150);
+    text-align: left;
+}
+.container2 h2 {
+    padding-top: 5rem;
+    color: rgb(255, 230, 200);
+    font-size: 2.5rem;
+}
+.container2 a {
+    color: rgb(220, 165, 74);
+}
+
+.about_container {
+    padding: 2rem;
+    max-width: 98rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.about_container a {
+    color: rgb(220, 165, 74);
+}
+.about_container h3 {
+    color: rgb(255, 195, 104);
+    padding-top: 1rem;
+}
+
+hr {
+    border: none;
+    height: 0.15rem;
+    background-color: rgb(130, 75, 4);
+    width: 45rem;
+    margin: 1rem 0;
+}

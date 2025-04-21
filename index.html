@@ -1,0 +1,134 @@
+<html>
+    <link rel="stylesheet" href="main.css?v=2">
+    <head>
+        <title>Da Music Player Official Website</title>
+    </head>
+
+    <body>
+        <canvas id="waveform"></canvas>
+
+        <div class = "container">
+            <header>
+                <H1>Da Music Player.exe
+                    <div class="image">
+                        <img src="logo.png">
+                    </div>
+                </H1>
+                <nav>
+                    <ul class="nav-links">
+                        <li class="link"><a href="index.html">Home</a></li>
+                        <li class="link"><a href="download.html">Download</a></li>
+                        <li class="link"><a href="https://tally.so/r/w2o8Rp">Feedback</a></li>
+                        <li class="link"><a href="https://github.com/Drimiteros/Da-Deep-Search">Source-Code</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <div class="description_container">
+                <div class="description_container2">
+                    <h2>Overview</h2>
+                    <a>
+                        Da Music Player is an open-source, retro, audio player tool. It includes some basic audio player features
+                        and is designed as a simple and lightweight solution to play your music.
+                    </a>
+                    <div class = "button">
+                        <button id = "scrollButton" class = "button1"><a href="#">📖 See more</a></button>
+                        <button id = "downloadButton" class = "button1"><a href="download.html">⬇️ Download</a></button>
+                        <button id = "donateButton" class = "button1"><a href="https://www.paypal.com/donate/?hosted_button_id=78P55A9PQUYFU">💸 Donate</a></button>
+                    </div>
+                </div>
+                <div class="image1">
+                    <img src="image1.png">
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class = "container2">
+            <h2>About Da Music Player </h2>
+            <div class="about_container">
+                <div class="image3">
+                    <img src="free.png">
+                    <h3>Free</h3>
+                    <a>Da Music Player is a free (with an option to donate) side project application by Drimiteros.</a>
+                </div>
+                <div class="image3">
+                    <img src="fast.png">
+                    <h3>Fast / Light</h3>
+                    <a>Da Music Player is made in C++20, using the SFML library to handle sound and graphics.</a>
+                </div>
+                <div class="image4">
+                    <img src="code.png">
+                    <h3>Open-Source</h3>
+                    <a>Da Music Player's heart is available to everyone. View and modify its source-code to your benefit!</a>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <h2>How to use Da Music Player</h2>
+            <a> 
+                &nbsp;&nbsp; 🔸 Create a shortcut of Da Deep Search.exe<br>
+                &nbsp;&nbsp; 🔸 Place the shortcut under C:\Users\[your username]\AppData\Roaming\Microsoft\<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Windows\Start Menu\Programs\Startup<br>
+                &nbsp;&nbsp; 🔸 Press LCtrl + Space to open / close the window.<br>
+                &nbsp;&nbsp; 🔸 Select the drives you want to scan, in the left corner.<br>
+                &nbsp;&nbsp; 🔸 Type the name of the file and press enter.<br>
+                &nbsp;&nbsp; 🔸 Click on a file you want to execute.
+            </a>
+        </div>
+
+    </body>
+</html>
+
+<script data-goatcounter="https://drimiteros.goatcounter.com/count"async src="//gc.zgo.at/count.js"></script>
+<script>
+    document.getElementById("scrollButton").addEventListener("click", function() {
+        document.querySelector(".about_container").scrollIntoView({
+            behavior: "smooth"  // this adds a nice smooth scroll
+        });
+    });
+</script>
+<script>
+    const canvas = document.getElementById('waveform');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    let t = 0;
+    let random = Math.random() * (0 - 5) + 5;
+    let random2 = Math.random() * (0 - 5) + 5;
+
+    function drawWaveform() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // First waveform
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height / 2);
+        for (let x = 0; x < canvas.width; x++) {
+            const y = canvas.height / 2 + 170 + Math.sin(x * 0.01 + t + random) * 60 * Math.sin(t * random * 0.1);
+            ctx.lineTo(x, y); 
+        }
+        ctx.strokeStyle = 'rgba(255, 207, 150, 0.5)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Second waveform
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height / 2);
+        for (let x = 0; x < canvas.width; x++) {
+            const y = canvas.height / 2 + 180 + Math.sin(x * 0.01 + t + random2) * 60 * Math.sin(t * random2 * 0.1);
+            ctx.lineTo(x, y); 
+        }
+        ctx.strokeStyle = 'rgba(155, 107, 50, 0.5)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        t += 0.1;
+        requestAnimationFrame(drawWaveform);
+    }
+    drawWaveform();
+</script>
